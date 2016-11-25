@@ -2,7 +2,7 @@
 
 Functions as Docker containers.
 
-Funker allows you to package up pieces of application as Docker containers and have them run on-demand on a swarm.
+Funker allows you to package up pieces of your application as Docker containers and have them run on-demand on a swarm.
 
 ## Getting started
 
