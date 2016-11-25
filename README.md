@@ -76,6 +76,13 @@ You should now see a Python prompt. Try importing the package and running the fu
 
 Cool! So, to recap: we've put a function written in Node inside a container, then called it from Python. That function is run on-demand, and this is all being done with plain Docker services and no additional infrastructure.
 
+## Implementations
+
+There are implementations of handling and calling Funker functions in various languages:
+
+- [Node](https://github.com/bfirsh/funker-node)
+- [Python](https://github.com/bfirsh/funker-python)
+
 ## Architecture
 
 ## Deploying with Compose
