@@ -83,6 +83,28 @@ There are implementations of handling and calling Funker functions in various la
 - [Node](https://github.com/bfirsh/funker-node)
 - [Python](https://github.com/bfirsh/funker-python)
 
+## Deploying with Compose
+
+Functions are just services, so they are really easy to deploy using Compose. You simply define them alongside your long-running services.
+
+For example, to deploy a function called `process-upload`:
+
+```yaml
+version: "2"
+services:
+  web:
+    image: oscorp/web
+  db:
+    image: postgres
+  process-upload:
+    image: oscorp/process-upload
+```
+
+In all the services in this application, the function will be available under the name `process-upload`. For example, you could call it with a bit of code like this:
+
+```python
+funker.call("process-upload", bucket="some-s3-bucket", filename="upload.jpg")
+```
+
 ## Architecture
 
-## Deploying with Compose
