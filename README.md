@@ -14,7 +14,7 @@ funker.handler(function(args, callback) {
 });
 ```
 
-Then call them from other Docker services, on-demand:
+Then call them from other Docker services on any node in the swarm:
 
 ```python
 >>> import funker
@@ -22,7 +22,7 @@ Then call them from other Docker services, on-demand:
 3
 ```
 
-It's a bit like serverless, but just using Docker.
+These functions are being called demand, scale effortlessly, and make your application vastly simpler. It's a bit like serverless, but just using Docker.
 
 ## Getting started
 
@@ -67,14 +67,14 @@ And building it:
 $ docker build -t add .
 ```
 
-To run the function, you create a service and put it inside a network:
+To run the function, you create a service:
 
 ```
 $ docker network create --attachable -d overlay funker
 $ docker service create --name add --network funker add
 ```
 
-The function is now available at the name `add` to other things running inside the network.
+The function is now available at the name `add` to other things running inside the same network.
 
 ### Calling a function
 
