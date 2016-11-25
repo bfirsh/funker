@@ -4,6 +4,26 @@ Functions as Docker containers.
 
 Funker allows you to package up pieces of your application as Docker containers and have them run on-demand on a swarm.
 
+You can define functions like this as Docker services:
+
+```javascript
+var funker = require('funker');
+
+funker.handler(function(args, callback) {
+  callback(args.x + args.y);
+});
+```
+
+Then call them from other Docker services, on-demand:
+
+```python
+>>> import funker
+>>> funker.call("add", x=1, y=2)
+3
+```
+
+It's a bit like serverless, but just using Docker.
+
 ## Getting started
 
 ### Creating a function
@@ -107,4 +127,3 @@ funker.call("process-upload", bucket="some-s3-bucket", filename="upload.jpg")
 ```
 
 ## Architecture
-
