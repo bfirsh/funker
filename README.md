@@ -58,7 +58,7 @@ The function is now available at the name `add` to other things running inside t
 
 ### Calling a function
 
-Let's try calling the function from a Node shell:
+Let's try calling the function from a Python shell:
 
 ```
 $ docker run -it --net funker funker/python
