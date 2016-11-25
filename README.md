@@ -16,7 +16,7 @@ Save this code as `handler.js`:
 var funker = require('funker');
 
 funker.handler(function(args, callback) {
-  return args.x + args.y;
+  callback(args.x + args.y);
 });
 ```
 
