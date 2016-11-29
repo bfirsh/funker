@@ -118,6 +118,7 @@ services:
     image: postgres
   process-upload:
     image: oscorp/process-upload
+    restart: always
 ```
 
 In all the services in this application, the function will be available under the name `process-upload`. For example, you could call it with a bit of code like this:
