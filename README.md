@@ -103,6 +103,10 @@ There are implementations of handling and calling Funker functions in various la
 - [Node](https://github.com/bfirsh/funker-node)
 - [Python](https://github.com/bfirsh/funker-python)
 
+## Example applications
+
+- [funker-example-voting-app](https://github.com/bfirsh/funker-example-voting-app) – an example app that uses Funker to do processing in the background
+
 ## Deploying with Compose
 
 Functions are just services, so they are really easy to deploy using Compose. You simply define them alongside your long-running services.
@@ -126,10 +130,6 @@ In all the services in this application, the function will be available under th
 ```python
 funker.call("process-upload", bucket="some-s3-bucket", filename="upload.jpg")
 ```
-
-## Example applications
-
-- [funker-example-voting-app](https://github.com/bfirsh/funker-example-voting-app) – an example app that uses Funker to do processing in the background
 
 ## Architecture
 
