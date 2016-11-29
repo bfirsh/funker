@@ -129,7 +129,7 @@ funker.call("process-upload", bucket="some-s3-bucket", filename="upload.jpg")
 
 ## Example applications
 
-- [funker-example-voting-app](https://github.com/bfirsh/funker-example-voting-app) -- an example app that uses Funker to do processing in the background
+- [funker-example-voting-app](https://github.com/bfirsh/funker-example-voting-app) – an example app that uses Funker to do processing in the background
 
 ## Architecture
 
