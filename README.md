@@ -126,4 +126,14 @@ In all the services in this application, the function will be available under th
 funker.call("process-upload", bucket="some-s3-bucket", filename="upload.jpg")
 ```
 
+## Example applications
+
+- [funker-example-voting-app](https://github.com/bfirsh/funker-example-voting-app) -- an example app that uses Funker to do processing in the background
+
 ## Architecture
+
+(TODO!)
+
+## Credits
+
+- [Justin Cormack](https://github.com/justincormack) for the idea.
