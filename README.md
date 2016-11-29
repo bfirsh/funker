@@ -133,7 +133,15 @@ funker.call("process-upload", bucket="some-s3-bucket", filename="upload.jpg")
 
 ## Architecture
 
-(TODO!)
+The architecture is intentionally very simple. It leans on Docker services as the base infrastructure, and avoids any unnecessary complexity (daemons, queues, storage, consensus systems, and so on).
+
+Functions run as Docker services. When they boot up, they open a TCP socket and sit there waiting for a connection.
+
+To call functions, another Docker service connects to the function at its hostname. This can be done anywhere in a swarm due to Docker's overlay networking. It sends function arguments as JSON, then the function responds with a return value as JSON.
+
+Once it has been called, the function refuses any other connections. Once it has responded, the function closes the socket and quits immediately. Docker's state reconciliation will then boot up a fresh copy of the function ready to receive calls again.
+
+So, each function only processes a single request. To process functions in parallel, we need to have multiple warm functions running in parallel, which is easy to do with Docker's service replication. The idea is to do this automatically, but this is incomplete. [See this issue for more background and discussion.](https://github.com/bfirsh/funker/issues/4)
 
 ## Credits
 
