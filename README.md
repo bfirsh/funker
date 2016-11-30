@@ -1,6 +1,4 @@
-# Funker
-
-Functions as Docker containers.
+# Funker: Functions as Docker containers
 
 Funker allows you to package up pieces of your application as Docker containers and have them run on-demand on a swarm.
 
