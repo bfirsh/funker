@@ -100,6 +100,7 @@ Cool! So, to recap: we've put a function written in Node inside a container, the
 
 There are implementations of handling and calling Funker functions in various languages:
 
+- [Go](https://github.com/bfirsh/funker-go)
 - [Node](https://github.com/bfirsh/funker-node)
 - [Python](https://github.com/bfirsh/funker-python)
 
