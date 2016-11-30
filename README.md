@@ -74,7 +74,7 @@ $ docker network create --attachable -d overlay funker
 $ docker service create --name add --network funker add
 ```
 
-The function is now available at the name `add` to other things running inside the same network.
+The function is now available at the name `add` to other things running inside the same network. It has booted up a warm version of the function, so calls made to it will be instant.
 
 ### Calling a function
 
@@ -143,6 +143,14 @@ To call functions, another Docker service connects to the function at its hostna
 Once it has been called, the function refuses any other connections. Once it has responded, the function closes the socket and quits immediately. Docker's state reconciliation will then boot up a fresh copy of the function ready to receive calls again.
 
 So, each function only processes a single request. To process functions in parallel, we need to have multiple warm functions running in parallel, which is easy to do with Docker's service replication. The idea is to do this automatically, but this is incomplete. [See this issue for more background and discussion.](https://github.com/bfirsh/funker/issues/4)
+
+### Alternative architectures
+
+An alternative implementation considered was for the function caller to create the service directly, [as has been done in some previous experiments](https://github.com/bfirsh/serverless-docker).
+
+The upside of Funker over this implementation is that functions are warm and ready to receive calls, and you don't need the complexity of giving containers access to create Docker services somehow.
+
+The disadvantage is that it doesn't scale easily. We need some additional infrastructure to be able to scale functions up and down to handle demand.
 
 ## Credits
 
